@@ -47,7 +47,7 @@ Finally, set a cron job to execute the robot each 1-5-10 minutes.
 * Devise for Auth
 * ActiveAdmin
 * Bootstrap 3
-* A pretty theme from WrapBootrap that I bought [here](http://demo.fuviz.com/reen/v1-1/portfolio5.html): 
+* A pretty theme from WrapBootrap that I bought [here](http://demo.fuviz.com/reen/v1-1/portfolio5.html).
 
 ## Screenshots!
 
