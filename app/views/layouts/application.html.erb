@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html class="csstransforms no-csstransforms3d csstransitions skrollr skrollr-desktop" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <title><%= content_for?(:title) ? yield(:title) : "PintaCams" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "R4a" %>">
+    <%#= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%#= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "/bootstrap.min.css" %>
+
+    <!-- Customizable CSS -->
+    <link href="/main.css" rel="stylesheet" data-skrollr-stylesheet="">
+    <link href="/green.css" rel="stylesheet" title="Color">
+    <link href="/owl.css" rel="stylesheet">
+    <link href="/owl_002.css" rel="stylesheet">
+    <link href="/animate.css" rel="stylesheet">
+    
+    <!-- Fonts -->
+    <link href="/css.css" rel="stylesheet">
+    <link href="/css_002.css" rel="stylesheet">
+    
+    <!-- Icons/Glyphs -->
+    <link href="/fontello.css" rel="stylesheet">
+
+    <style id="patched-viewport"></style>
+
+  </head>
+  <body style="height: 1885px;">
+    <%= render 'layouts/navigation' %>
+    <main>
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+    </main>
+
+    <% if @footer_cameras %>
+      <section class="dark-bg">
+        <div class="container inner">
+          <div class="row">
+            <div class="col-md-3 col-sm-6">
+              <h4>Zonas</h4>
+              <% @tags.each do |tag| %>
+                <a href="/viewer?tag=<%= tag %>"><%= tag.titlecase %></a><br>
+              <% end %>
+            </div><!-- /.col -->
+            <% cam_counter = 1 %>
+            <% div_counter = 0 %>
+            <% @footer_cameras.each do |camera| %>
+              <% if div_counter < 3 and ( cam_counter == 1 or cam_counter % ( @footer_cameras.count/2 ).to_i == 0 or cam_counter == @footer_cameras.count - 2 ) %>
+                <%= raw("</div>") if cam_counter > 1 %>
+                <div class="col-md-3 col-sm-6">
+                <%= raw("<h4>Sucursales</h4>") if cam_counter == 1 %>
+                <%= raw("<h4>&nbsp;</h4>") if cam_counter > 1 %>
+                <% div_counter = div_counter + 1 %>
+              <% end %>
+              <a href="/viewer/<%= camera.sucursal.to_s %>-<%= camera.numcamera.to_s %>"><%= camera.sucursal %> <%= camera.nombre.to_s.length > 1 ? camera.nombre : "Sucursal" %></a><br>
+              <% cam_counter = cam_counter + 1 %>
+            <% end %>
+            </div>
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      </section>
+    <% end %>
+
+    <footer class="dark-bg">
+      <div class="footer-bottom">
+        <div class="container inner">
+<!--           <br>
+          <br>
+          <br> -->
+          <p class="pull-left">Powered by <a href="http://twitter.com/altuzar/">@altuzar</a></p>
+
+          <ul class="footer-menu pull-right">
+            <% if user_signed_in? %>
+              <li><a href="/privacy">Aviso de Privacidad</a></li>
+            <% end %>
+          </ul><!-- .footer-menu -->
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          
+        </div><!-- .container -->
+      </div><!-- .footer-bottom -->
+    </footer>
+
+    <!-- JavaScripts placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery_005.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/jquery_003.js"></script>
+    <script src="/js/jquery_006.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/bootstrap-hover-dropdown.js"></script>
+    <script src="/js/skrollr_002.js"></script>
+    <script src="/js/skrollr.js"></script>
+    <script src="/js/waypoints.js"></script>
+    <script src="/js/waypoints-sticky.js"></script>
+    <script src="/js/owl.js"></script>
+    <script src="/js/jquery_002.js"></script>
+    <script src="/js/jquery_004.js"></script>
+    <!-- <script src="/js/google.js"></script> -->
+    <!-- <script src="/js/main.js" type="text/javascript"></script> -->
+    <script src="/js/viewport-units-buggyfill.js"></script>
+    <script src="/js/scripts.js"></script>
+    <!-- <script src="/js/jquery_ujs.js"></script> -->
+    
+    <a style="position: fixed; z-index: 1001; display: block;" href="#top" id="scrollUp"><i class="icon-up-open-mini"></i></a>
+  </body>
+</html>

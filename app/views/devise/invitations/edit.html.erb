@@ -1,0 +1,21 @@
+<div class="authform">
+
+	<%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
+
+		<h3><%= t 'devise.invitations.edit.header' %></h3>
+		<%= devise_error_messages! %>
+		<%= f.hidden_field :invitation_token %>
+	    <p>Por favor ingrese un password para generar su cuenta</p>
+
+	    <div class="form-group">
+
+			<%= f.input :password, :autofocus => true, class: 'form-control' %>
+			<%= f.input :password_confirmation, class: 'form-control' %>
+
+	    </div>
+
+		<%= f.submit t("devise.invitations.edit.submit_button"), :class => 'button right'  %>
+
+	<% end %>
+
+</div>

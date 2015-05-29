@@ -1,0 +1,16 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    commander (4.2.0)
+      highline (~> 1.6.11)
+    highline (1.6.21)
+    mini_magick (3.8.1)
+      subexec (~> 0.2.1)
+    subexec (0.2.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  commander
+  mini_magick

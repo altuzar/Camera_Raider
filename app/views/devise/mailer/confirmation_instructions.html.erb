@@ -1,0 +1,11 @@
+<p>Bienvenido a Sitio, <%= @resource.name %>!</p>
+
+<p>1. Para ingresar al sitio, debes confirmar tu cuenta de email con el siguiente enlace:</p>
+
+<p><%= link_to 'Confirmar mi cuenta', confirmation_url(@resource, :confirmation_token => @token) %></p>
+
+<p>2. Después de confirmar su email, por favor establezca su password en el siguiente enlace:</p>
+
+<p><%= link_to 'Establecer mi password', 'http://sitra.pw/users/password/new' %></p>
+
+<p>Gracias.</p>

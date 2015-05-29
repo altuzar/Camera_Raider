@@ -1,0 +1,78 @@
+<header>
+  <div class="navbar">
+
+    <div class="navbar-header">
+      <div class="container">
+        
+       
+        <!-- ============================================================= LOGO MOBILE ============================================================= -->
+        
+        <a class="navbar-brand" href="/"><img style="max-height: 20px;" data-300="max-height: 20px;" data-40="max-height: 40px;" src="/logo.svg" class="logo skrollable skrollable-after" alt=""></a>
+        
+        <!-- ============================================================= LOGO MOBILE : END ============================================================= -->
+        
+        <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".navbar-collapse"><i class="icon-menu-1"></i></a>
+        
+      </div><!-- /.container -->
+    </div><!-- /.navbar-header -->
+
+    <div class="yamm">
+      <div class="sticky-wrapper"><div style="height: 112px;"><div style="padding-top: 0px; padding-bottom: 0px; box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);" data-300="padding-top: 0;padding-bottom: 0;-webkit-box-shadow: 0 10px 10px rgba(0,0,0,0.1);   -moz-box-shadow: 0 10px 10px rgba(0,0,0,0.1);box-shadow: 0 10px 10px rgba(0,0,0,0.1);" data-40="padding-top: 30px;padding-bottom: 30px;-webkit-box-shadow: 0 10px 10px rgba(0,0,0,0);   -moz-box-shadow: 0 10px 10px rgba(0,0,0,0.0);box-shadow: 0 10px 10px rgba(0,0,0,0);" class="navbar-collapse collapse skrollable stuck skrollable-after">
+        <div class="container">
+          
+          <a class="navbar-brand" href="/"><img style="max-height: 20px;" data-300="max-height: 20px;" data-40="max-height: 40px;" src="/logo.svg" class="logo skrollable skrollable-after" alt=""></a>
+          
+          <ul class="nav navbar-nav">
+
+
+            <!-- <li  --><%#= raw "class='active'" if controller.action_name == 'index' %><!-- ><a href="/">Home</a></li> -->
+            <% if user_signed_in? %>
+            <% end %>
+
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle js-activated" data-toggle="dropdown"><%= current_user.email %><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <% if current_user.has_role? :admin %>
+                    <li><%= link_to 'Administrar Usuarios', admin_root_path %></li>
+                    <li><%= link_to 'Configurar Cámaras', cameras_path %></li>
+
+                    <% if Devise.mappings[:user].invitable? %>
+                      <li><%= link_to 'Crear Invitación', new_user_invitation_path %></li>
+                    <% end %>
+
+                    <!-- <li role="presentation" class="divider"></li> -->
+                  <% end %>
+
+                  <% if ( current_user.has_role? :operaciones unless current_user.has_role? :admin ) %>
+                    <li><%= link_to 'Horarios', horarios_path %></li>
+                  <% end %>
+
+                  <% if ( current_user.has_role? :marketing unless current_user.has_role? :admin ) %>
+                    <li><%= link_to 'Fechas Especiales', special_dates_path %></li>
+                  <% end %>
+
+                  <%- if Devise.mappings[:user].registerable? %>
+                    <li><%= link_to 'Perfil', edit_user_registration_path %></li>
+                  <% end -%>
+
+                  <li>
+                    <a href="/get_out">Salir</a>
+                    <%#= link_to 'Salir', destroy_user_session_path, :method=>'delete' %>
+                  </li>
+
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to 'Login', new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+

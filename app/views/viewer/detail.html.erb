@@ -1,0 +1,126 @@
+<section id="portfolio-post">
+	<% if @browser != "ios" %>
+		<h6>&nbsp;</h6>
+	<% end %>	
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 portfolio">
+				<ul class="fake-filter text-center">
+					<li><a href="/" data-filter="*" class="active">Todas</a></li>
+					<% @tags.each do |tag| %>
+						<li><a href="/viewer?tag=<%= tag %>"><%= tag.titlecase %></a></li>
+					<% end %>
+				</ul><!-- /.filter -->
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 portfolio">
+				<ul class="fake-filter text-center">
+					<li><a href="#" data-filter="*" class="active">Zona <%= @cameras[0].tags %></a></li>
+					<li><a href="#" data-filter="*" class="active">Sucursal <%= @cameras[0].sucursal %><%= "#{ @cameras[0].numcamera == 0 ? "" : " - #{@cameras[0].numcamera}" }" %></a></li>
+					<li><a href="<%= raw( @feed_url ) %>" target="_blank">Ver Feed en Vivo <i class="icon-videocam"></i></a></li>
+				</ul><!-- /.filter -->				
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="owl-work" class="owl-carousel owl-inner-pagination owl-outer-nav owl-ui-lg">
+					<div class="item">
+						<figure>
+							<img src="<%= @camera_img %>" alt="">
+						</figure>
+					</div><!-- /.item -->
+				</div><!-- /.owl-carousel -->
+			</div><!-- /.col -->
+		</div><!-- /.row -->
+		
+		<div class="row">
+			<div class="col-sm-7 inner-top-xs inner-right-xs">
+				<header>
+					<h2>&nbsp;</h2>
+					<p class="text-normal">&nbsp;</p>
+				</header>
+			</div><!-- /.col -->
+		</div><!-- /.row -->		
+	</div><!-- /.container -->
+	
+</section>
+
+<section id="get-started" class="tint-bg">
+	<div class="container inner-sm">
+		<div class="row">
+			<div class="col-sm-11 center-block text-center">
+				<a href="/viewer/<%= @cameras[0].sucursal.to_s %>-<%= @cameras[0].numcamera.to_s %>"><h1 class="single-block"><%= @cameras[0].nombre %></h1></a>
+				<p>Sucursal <%= @cameras[0].sucursal %><%= "#{ @cameras[0].numcamera == 0 ? "" : " - #{@cameras[0].numcamera}" }" %></p>
+				<p><%= get_exact_time( @camera_img ) %></p>
+			</div><!-- /.col -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section>
+
+	<div class="container inner">
+		<div class="row">
+			<div class="col-md-8 col-sm-9 center-block text-center  ">
+				<header>
+					<h1><a href="<%= raw( @feed_url ) %>" target="_blank">Ver Feed en Vivo</a></h1>
+					<h1><a href="<%= raw( @feed_url ) %>" target="_blank"><i class="icon-videocam"></i></a></h1>
+				</header>
+			</div><!-- /.col -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+
+	<style>
+
+		.fake-filter {
+			padding: 0;
+		    margin-bottom: 40px;
+		}
+		.fake-filter:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			border-bottom: 1px solid #CED7E0;
+		}
+		.fake-filter li {
+		    display: inline;
+			position: relative;
+			background: #FFF;
+			font-size: 15px;
+		    font-weight: 700;
+			line-height: 150%;
+			letter-spacing: .031em;
+		    text-transform: uppercase;
+			margin: 0 -2px;
+		}
+		.light-bg .format-filter li {
+			background: #F2F5F7;
+		}
+		.fake-filter li:after {
+			content: "\00b7";
+		}
+		.fake-filter li:last-child:after {
+			content: "";
+		}
+		.fake-filter li a {
+		    padding: 0 15px;
+		}
+		.light-bg .fake-filter:before {
+			border-color: #BCC7D1;
+		}
+		.light-bg .fake-filter li {
+			background: #F2F5F7;
+		}
+		.dark-bg .fake-filter:before {
+			border-color: #73879C;
+		}
+		.dark-bg .fake-filter li {
+			background: #2F4052;
+		}
+
+	</style>
+	

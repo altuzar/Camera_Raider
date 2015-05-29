@@ -1,0 +1,24 @@
+
+<section id="portfolio">
+  
+  <h4>&nbsp;</h4>
+  
+  <div class="container inner-bottom">
+    <div class="row">
+      <div class="col-md-4 col-sm-3 center-block text-center">
+        <div class="authform">
+          <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :role => 'form'}) do |f| %>
+            <h3>¿No Password?</h3>
+            <p>Enviaremos las instrucciones para resetear password / We'll send password reset instructions</p>
+            <%= devise_error_messages! %>
+            <div class="form-group">
+              <%= f.label :email %>
+              <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
+            </div>
+             <%= f.submit 'Reset Password', :class => 'btn btn-large btn-green' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

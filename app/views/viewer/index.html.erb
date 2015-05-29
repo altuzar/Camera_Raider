@@ -1,0 +1,111 @@
+<section id="portfolio">
+	
+	<% if @browser != "ios" %>
+		<h6>&nbsp;</h6>
+	<% end %>
+	
+	<div class="container inner-bottom">
+		<div class="row">
+			<div class="col-sm-12 portfolio">
+				<% if @filtros.count > 1 %>
+					<ul class="fake-filter text-center">
+						<li><a href="/" >Mostrar Todas</a></li>
+					</ul><!-- /.filter -->
+				<% else %>
+					<ul class="filter text-center">
+						<li><a href="#" data-filter="*" class="active">Todas</a></li>
+						<% @tags.each do |tag| %>
+							<li><a href="#" data-filter=".<%= tag %>"><%= tag.titlecase %></a></li>
+						<% end %>
+					</ul><!-- /.filter -->
+				<% end %>
+				
+				<ul class="items col-4 gap">
+				
+					<% @cameras.each do |camera| %>
+      					<% suc_cam = "#{camera.sucursal}-#{camera.numcamera}" %>
+
+						<li class="item thumb interactive <%= camera.tags.to_s %>">
+							<figure>
+
+								<div class="icon-overlay icn-link">
+									<a href="/viewer/<%= camera.sucursal.to_s %>-<%= camera.numcamera.to_s %>"><img src="<%= @cameras_img[suc_cam] %>" alt=""></a>
+								</div><!-- /.icon-overlay -->
+								
+								<figcaption class="bordered no-top-border">
+									<div class="info">
+										<h4><a href="/viewer/<%= camera.sucursal.to_s %>-<%= camera.numcamera.to_s %>"><%= camera.nombre.to_s.length > 1 ? camera.nombre : "Sucursal" %></a></h4>
+										<p>Sucursal <%= camera.sucursal.to_s %></p>
+										<!-- <p> --><%#= get_exact_time( @cameras_img[suc_cam] ) %><!-- </p> -->
+										<p><%= get_time_ago( @cameras_img[suc_cam] ) %></p>
+										<a href="<%= raw( @cameras_feed[suc_cam] ) %>" target="_blank">Ver Feed en Vivo <i class="icon-videocam"></i></a>
+										
+									</div><!-- /.info -->
+								</figcaption>
+								
+							</figure>
+						</li><!-- /.item -->
+
+					<% end %>
+
+				</ul><!-- /.items -->
+				
+			</div><!-- /.col -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</section>					
+
+<% if @filtros.count > 1 %>
+
+	<style>
+
+		.fake-filter {
+			padding: 0;
+		    margin-bottom: 40px;
+		}
+		.fake-filter:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			border-bottom: 1px solid #CED7E0;
+		}
+		.fake-filter li {
+		    display: inline;
+			position: relative;
+			background: #FFF;
+			font-size: 15px;
+		    font-weight: 700;
+			line-height: 150%;
+			letter-spacing: .031em;
+		    text-transform: uppercase;
+			margin: 0 -2px;
+		}
+		.light-bg .format-filter li {
+			background: #F2F5F7;
+		}
+		.fake-filter li:after {
+			content: "\00b7";
+		}
+		.fake-filter li:last-child:after {
+			content: "";
+		}
+		.fake-filter li a {
+		    padding: 0 15px;
+		}
+		.light-bg .fake-filter:before {
+			border-color: #BCC7D1;
+		}
+		.light-bg .fake-filter li {
+			background: #F2F5F7;
+		}
+		.dark-bg .fake-filter:before {
+			border-color: #73879C;
+		}
+		.dark-bg .fake-filter li {
+			background: #2F4052;
+		}
+
+	</style>
+<% end %>

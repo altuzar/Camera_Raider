@@ -1,0 +1,61 @@
+<section id="pricing-tables">
+  <div class="container inner">
+    
+    <div class="row">
+      <div class="col-md-8 col-sm-9 center-block text-center">
+        <header>
+          <h1>Detalles de Cámara</h1>
+        </header>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+    
+    <div class="row pricing">
+      
+      <div class="col-md-6 col-sm-6 center-block inner-top-sm">
+
+        <p>
+          <strong>Sucursal:</strong>
+          <%= @camera.sucursal %>
+        </p>
+
+        <p>
+          <strong>Cámara (Default: 0):</strong>
+          <%= @camera.numcamera %>
+        </p>
+
+        <p>
+          <strong>IP y Puerto:</strong>
+          <%= @camera.ipaddress %>
+        </p>
+
+        <p>
+          <strong>Usuario:</strong>
+          <%= @camera.user %>
+        </p>
+
+        <p>
+          <strong>Password:</strong>
+          <%= @camera.pass %>
+        </p>
+
+        <p>
+          <strong>Tags:</strong>
+          <%= @camera.tags %>
+        </p>
+
+        <p>
+          <strong>Status:</strong>
+          <%= @camera.status %>
+        </p>
+
+        <%= link_to 'Editar', edit_camera_path(@camera) %> |
+        <%= link_to 'Regresar', cameras_path %>
+
+      </div><!-- /.col -->
+      
+    </div><!-- /.row -->
+    
+  </div><!-- /.container -->
+</section>
+
+

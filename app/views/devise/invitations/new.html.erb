@@ -1,0 +1,20 @@
+<div class="authform">
+
+	<%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
+
+		<h3><%= t "devise.invitations.new.header" %></h3>
+		<%= devise_error_messages! %>
+	    <p>Enviaremos la invitación para ingresar al sitio e ingresar un password</p>
+
+	    <div class="form-group">
+
+			<% resource.class.invite_key_fields.each do |field| -%>
+	  			<%= f.input field, :autofocus => true, class: 'form-control' %>
+			<% end -%>
+		</div>
+
+		<%= f.submit t("devise.invitations.new.submit_button"), :class => 'button right' %>
+
+	<% end %>
+
+</div>

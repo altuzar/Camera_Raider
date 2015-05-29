@@ -1,0 +1,65 @@
+<section id="pricing-tables">
+  <div class="container inner">
+    
+    <div class="row">
+      <div class="col-md-8 col-sm-9 center-block text-center">
+        <header>
+          <h1>Configuración de Cámaras</h1>
+        </header>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+    
+    <div class="row pricing">
+      
+      <div class="col-md-12 col-sm-12 center-block inner-top-sm">
+
+        <!-- <table class="table"> -->
+        <table cellpadding="0" cellspacing="0" border="0" class="table table-hover table-bordered">
+
+          <thead>
+            <tr>
+              <th>Sucursal</th>
+              <th>Nombre</th>
+              <th>Ip Puerto</th>
+              <th>Usuario</th>
+              <th>Pass</th>
+              <th>Tags</th>
+              <th>Status</th>
+              <!-- <th colspan="3"></th> -->
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @cameras.each do |camera| %>
+              <tr>
+                <td><%= camera.sucursal %> <%= camera.numcamera %></td>
+                <td><%= camera.nombre %></td>
+                <td><%= camera.ipaddress %></td>
+                <td><%= camera.user %></td>
+                <td><%= camera.pass %></td>
+                <td><%= camera.tags %></td>
+                <td><%= camera.status %></td>
+                <td>
+                  <%= link_to 'Ver', camera, class: "btn btn-default btn-xs btn-small" %>
+                  <%= link_to 'Editar', edit_camera_path(camera), class: "btn btn-default btn-xs btn-small" %>
+                  <%#= link_to 'Borrar', camera, method: :delete, data: { confirm: 'Está seguro que desea borrar la cámara?' }, class: "btn btn-red btn-xs btn-small" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <br>
+
+        <%= link_to 'Nueva Cámara', new_camera_path, class: "btn btn-primary btn-lg" %>
+        <br>
+        <%= link_to 'Configuración Avanzada de Cámaras', "/admin/cameras", class: "btn btn-primary btn-lg" %>
+
+
+      </div><!-- /.col -->
+      
+    </div><!-- /.row -->
+    
+  </div><!-- /.container -->
+</section>

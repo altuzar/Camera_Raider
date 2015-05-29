@@ -1,0 +1,14 @@
+en:
+  errors:
+    messages:
+      taken_in_past: "ya ha sido ingresado en el pasado / was already taken in the past"
+      equal_to_current_password: "debe ser diferente al password actual / must be different to the current password"
+      password_format: "debe contener mayúsculas, minúsculas y dígitos / must contain big, small letters and digits"
+  devise:
+    invalid_captcha: "El captcha no es válido / The captcha input is not valid"
+    password_expired:
+      updated: "Tu nuevo password se ha guardado / Your new password is saved"
+      change_required: "Tu password ha expirado. Favor de cambiarlo. / Your password is expired. Please renew your password"
+    failure:
+      session_limited: 'Las credenciales se están usando en otra sesión. Favor de ingresar nuevamente. / Your login credentials were used in another browser. Please sign in again to continue in this browser.'
+      expired: 'Tu cuenta ha expirado por inactividad. Favor de contactar al administrador del sitio. / Your account has expired due to inactivity. Please contact the site administrator.'

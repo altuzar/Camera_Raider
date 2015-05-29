@@ -1,0 +1,57 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+en:
+  errors:
+    messages:
+      expired: "ha expirado, favor de pedir uno nuevo / has expired, please request a new one"
+      not_found: "no encontrado / not found"
+      already_confirmed: "fue confirmado, favor de ingresar / was already confirmed, please try signing in"
+      not_locked: "no fue bloqueado / was not locked"
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+
+  devise:
+    failure:
+      already_authenticated: 'Usted ya esta ingresado. / You are already signed in.'
+      unauthenticated: 'Usted debe entrar antes de continuar. / You need to sign in or sign up before continuing.'
+      unconfirmed: 'Usted debe confirmar su cuenta antes de continuar. / You have to confirm your account before continuing.'
+      locked: 'Su cuenta esta bloqueada. / Your account is locked.'
+      invalid: 'Email o password invalido. / Invalid email or password.'
+      invalid_token: 'Token de autenticacion invalido o ya ha validado su cuenta. / Invalid authentication token or account already confirmed.'
+      timeout: 'Su sesion expiro, favor de ingresar nuevamente. / Your session expired, please sign in again to continue.'
+      inactive: 'Su cuenta no ha sido activada. / Your account was not activated yet.'
+    sessions:
+      signed_in: 'Ingreso exitoso. / Signed in successfully.'
+      signed_out: 'Salida exitosa. / Signed out successfully.'
+    passwords:
+      send_instructions: 'Usted recibira un email con instrucciones para cambiar su password en unos minutos. / You will receive an email with instructions about how to reset your password in a few minutes.'
+      updated: 'Su password ha cambiado exitosamente. Ya esta ingresado. / Your password was changed successfully. You are now signed in.'
+      updated_not_active: 'Su password ha cambiado exitosamente. / Your password was changed successfully.'
+      send_paranoid_instructions: "Si su email existe en nuestra base, recibira un enlace de recuperacion de password en su email. / If your e-mail exists on our database, you will receive a password recovery link on your e-mail"
+    confirmations:
+      send_instructions: 'Usted recibira un email con instrucciones para confirmar su cuenta en unos minutos. / You will receive an email with instructions about how to confirm your account in a few minutes.'
+      send_paranoid_instructions: 'Si su email existe en nuestra base, usted recibira un email con instrucciones para confirmar su cuenta en unos minutos. / If your e-mail exists on our database, you will receive an email with instructions about how to confirm your account in a few minutes.'
+      confirmed: 'Su cuenta fue confirmada exitosamente. Usted ha ingresado. / Your account was successfully confirmed. You are now signed in.'
+    registrations:
+      signed_up: 'Bienvenido! Usted ha ingresado exitosamente. / Welcome! You have signed up successfully.'
+      signed_up_but_unconfirmed: 'Un enlace con la confirmacion se ha enviado a su email. Favor de abrir el enlace para activar su cuenta. / A message with a confirmation link has been sent to your email address. Please open the link to activate your account.'
+      signed_up_but_inactive: 'Usted se ha registrado exitosamente. Sin embargo, no pudimos ingresarlo porque su cuenta no ha sido activada. / You have signed up successfully. However, we could not sign you in because your account is not yet activated.'
+      signed_up_but_locked: 'Usted se ha registrado exitosamente. Sin embargo, no pudimos ingresarlo porque su cuenta esta bloqueada. / You have signed up successfully. However, we could not sign you in because your account is locked.'
+      updated: 'Cuenta editada exitosamente. / You updated your account successfully.'
+      update_needs_confirmation: "Cuenta editada exitosamente, pero necesita verificar su cuenta de email. Favor de revisar su email y hacer click en el enlace de confirmacion para verificar su cuenta. / You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
+      destroyed: 'Su cuenta ha sido cancelada. Esperamos verlo de nuevo pronto. / Your account was successfully cancelled. We hope to see you again soon.'
+    unlocks:
+      send_instructions: 'Usted recibira un email con instrucciones para desbloquear su cuenta en unos minutos. / You will receive an email with instructions about how to unlock your account in a few minutes.'
+      unlocked: 'Su cuenta ha sido desbloqueada exitosamente. Favor de ingresar. / Your account has been unlocked successfully. Please sign in to continue.'
+      send_paranoid_instructions: 'Si su cuenta existe, se le enviara un email con instrucciones en unos minutos. / If your account exists, you will receive an email with instructions about how to unlock it in a few minutes.'
+    omniauth_callbacks:
+      success: 'Successfully authorized from %{kind} account.'
+      failure: 'Could not authorize you from %{kind} because "%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: 'Instrucciones de confirmacion / Confirmation instructions'
+      reset_password_instructions:
+        subject: 'Instrucciones de cambio de password / Reset password instructions'
+      unlock_instructions:
+        subject: 'Instrucciones de desbloqueo / Unlock Instructions'

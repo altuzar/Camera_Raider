@@ -1,0 +1,29 @@
+<div class="authform">
+
+  <%= form_for(resource, :as => resource_name, :url => [resource_name, :password_expired], :html => { :method => :put }) do |f| %>
+
+    <h2>Cambiar password / Renew password</h2>
+
+    <%= devise_error_messages! %>
+
+    <p>Han pasado más de 3 meses sin cambiar el password. Favor de cambiarlo.</p>
+    <p>There has been more than 3 months since last password change. Please change it.</p>
+
+    <div class="form-group">
+
+      <%= f.label :current_password, "Password actual / Current password" %>
+      <%= f.password_field :current_password, autofocus: true, class: 'form-control'  %>
+
+      <%= f.label :password, "Nuevo password / New password" %>
+      <%= f.password_field :password, class: 'form-control'  %></p>
+
+      <%= f.label :password_confirmation, "Confirmación / Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control'  %>
+
+    </div>
+
+    <p><%= f.submit "Cambiar / Change", :class => 'button right' %></p>
+
+  <% end %>
+
+</div>

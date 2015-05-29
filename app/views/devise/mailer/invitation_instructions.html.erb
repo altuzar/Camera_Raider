@@ -1,0 +1,8 @@
+<p>Hola, <%= @resource.email %>!</p>
+
+<p>Alguien te ha invitado a <%= root_url %>, y puedes aceptar la invitación a través del siguiente enlace.</p>
+
+<p><%= link_to 'Aceptar invitación', accept_invitation_url(@resource, :invitation_token => @token) %></p>
+
+<p>Si no deseas aceptar la invitación, por favor ignora este email.<br />
+Tu cuenta no será creada hasta que aceptes el mail anterior y establezcas tu password.</p>
