@@ -124,7 +124,8 @@ ActiveAdmin.setup do |config|
   #
   # You can completely disable comments:
   # config.allow_comments = false
-  config.allow_comments = true
+  # config.allow_comments = true
+  config.comments = true
   #
   # You can disable the menu item for the comments index page:
   # config.show_comments_in_menu = false
@@ -146,8 +147,8 @@ ActiveAdmin.setup do |config|
   # Active Admin resources and pages from here.
   #
   # config.before_filter :do_something_awesome
-  
-  
+
+
   # == Setting a Favicon
   #
   # config.favicon = '/assets/favicon.ico'
@@ -239,7 +240,7 @@ ActiveAdmin.setup do |config|
   # config.filters = true
 
   def authenticate_admin_user!
-    authenticate_user! 
+    authenticate_user!
     if ! current_user.has_role? :admin
       redirect_to new_user_session_path
     end

@@ -16,10 +16,11 @@ And finally, you install this app.
 
 ## Install
 
-First, create a MySql server and create a database there called "cameras". You can use MySql, Postgres, Sqlite or any ActiveRecord engine you want, just change the config/db.yml and check the users and passwords for that.
+First, install a database engine and setup the users/grants. You can use MySql, Postgres, Sqlite or any ActiveRecord engine you want, just change the config/database.yml and check the users and passwords for that. This will create some databases called cameras_dev, cameras_test and cameras_prod.
 
 ```
 bundle install
+rake db:create
 rake db:migrate
 rake db:seed
 rails s
@@ -32,7 +33,7 @@ User: user@example.com
 Pass: changeme
 ```
 
-Or you can change those defaults in application.yml. 
+Or you can change those defaults in application.yml.
 
 ## Post Install
 
