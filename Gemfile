@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
-ruby '2.1.2'
+# ruby '2.1.2'
 # ruby '2.0.0'
-gem 'rails', '4.1.5' # Update me!
+gem 'rails', '4.2.6' # Update me!
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'

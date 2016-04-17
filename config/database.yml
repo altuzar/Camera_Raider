@@ -5,7 +5,7 @@
     database: cameras
     pool: 5
     username: root
-    password: 
+    password:
     host: localhost
 
   # Warning: The database defined as "test" will be erased and
@@ -15,10 +15,10 @@
     adapter: mysql2
     encoding: utf8
     reconnect: false
-    database: cameras
+    database: cameras_test
     pool: 5
     username: root
-    password: 
+    password:
     host: localhost
 
   production:
@@ -28,5 +28,5 @@
     database: cameras
     pool: 5
     username: root
-    password: 
+    password:
     host: localhost
